@@ -166,6 +166,14 @@ const CHARACTERS = [
     "file": "images/Gorou.png"
   },
   {
+    "name": "Heizou",
+    "file": "images/Heizou.png"
+  },
+  {
+    "name": "Hu Tao",
+    "file": "images/Hu Tao.png"
+  },
+  {
     "name": "Iansan",
     "file": "images/Iansan.png"
   },
@@ -228,6 +236,10 @@ const CHARACTERS = [
   {
     "name": "Kokomi",
     "file": "images/Kokomi.png"
+  },
+  {
+    "name": "Lan Yan",
+    "file": "images/Lan Yan.png"
   },
   {
     "name": "Lauma",
@@ -326,12 +338,20 @@ const CHARACTERS = [
     "file": "images/Qiqi.png"
   },
   {
+    "name": "Raiden",
+    "file": "images/Raiden.png"
+  },
+  {
     "name": "Razor",
     "file": "images/Razor.png"
   },
   {
     "name": "Rosaria",
     "file": "images/Rosaria.png"
+  },
+  {
+    "name": "Sandrone",
+    "file": "images/Sandrone.png"
   },
   {
     "name": "Sara",
@@ -440,6 +460,10 @@ const CHARACTERS = [
   {
     "name": "Yoimiya",
     "file": "images/Yoimiya.png"
+  },
+  {
+    "name": "Yun Jin",
+    "file": "images/Yun Jin.png"
   },
   {
     "name": "Zhongli",
