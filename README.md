@@ -28,6 +28,17 @@ instead of fighting the automatic conversion.
 
 ## 2. Generate the character list
 
+You have two options — pick whichever is easier for you.
+
+**Option A: In your browser, no installs needed**
+
+Open `generate-list.html` directly in your browser (double-click the file,
+or drag it into a browser tab). Select your `images/` folder when prompted,
+then click "Download characters.js" and save it into the project root,
+replacing the placeholder file.
+
+**Option B: With Node.js, from the command line**
+
 Run this locally (requires [Node.js](https://nodejs.org)) whenever you
 add, remove, or rename images:
 
@@ -35,8 +46,9 @@ add, remove, or rename images:
 node generate-list.js
 ```
 
-This scans `images/` and writes `characters.js` — the array the app reads
-at runtime. Commit `characters.js` along with your images.
+Both do exactly the same thing — read filenames from `images/`, derive
+display names, and write `characters.js`. Commit `characters.js` along with
+your images either way.
 
 ## 3. Try it locally
 
@@ -75,7 +87,8 @@ has no idea a human is on the other end of each comparison.
 | `style.css` | All styling |
 | `sorter.js` | Sorting algorithm (framework-agnostic, no DOM code) |
 | `app.js` | Wires the sorter to the UI, handles input, renders results |
-| `generate-list.js` | Local script: scans `images/` &rarr; writes `characters.js` |
+| `generate-list.js` | Local script (needs Node): scans `images/` &rarr; writes `characters.js` |
+| `generate-list.html` | Browser-based alternative — same job, no Node install needed |
 | `characters.js` | Auto-generated list of `{ name, file }` — do not hand-edit |
 | `images/` | Character portraits |
 
