@@ -42,7 +42,18 @@ function* binaryInsertionSort(items) {
     while (lo < hi) {
       const mid = (lo + hi) >> 1;
       // Ask: is itemIndex preferred over sorted[mid]?
-      const preferNew = yield { a: itemIndex, b: sorted[mid] };
+      // Along with the pair, expose the current binary-search state so the
+      // UI can visualize which range of ranked positions is still in play.
+      const preferNew = yield {
+        a: itemIndex,
+        b: sorted[mid],
+        sortedOrder: sorted.slice(),
+        insertingIndex: itemIndex,
+        lo,
+        hi,
+        mid,
+        totalCount: order.length,
+      };
       if (preferNew) {
         hi = mid;
       } else {

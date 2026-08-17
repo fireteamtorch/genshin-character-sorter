@@ -154,6 +154,82 @@ main {
   gap: 1.25rem;
 }
 
+/* ---- Array visualizer ---- */
+
+.viz-caption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0 0 0.6rem;
+  min-height: 1.2em;
+}
+
+.array-viz {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px;
+  margin: 0 0 0.9rem;
+}
+
+.array-slot {
+  width: 9px;
+  height: 20px;
+  border-radius: 3px;
+  background: var(--surface-raised);
+  border: 1px solid transparent;
+  flex-shrink: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.array-slot.sorted {
+  background: var(--accent-a);
+  opacity: 0.45;
+}
+
+.array-slot.sorted.window {
+  opacity: 1;
+  border-color: var(--accent-b);
+  transform: scaleY(1.15);
+}
+
+.array-slot.sorted.mid {
+  border-width: 2px;
+  border-color: #f1efe4;
+}
+
+.array-slot.queued {
+  background: transparent;
+  border: 1px dashed var(--border);
+}
+
+.viz-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.viz-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend-swatch {
+  width: 9px;
+  height: 14px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.legend-swatch.settled { background: var(--accent-a); opacity: 0.45; }
+.legend-swatch.window { background: var(--accent-a); border: 1px solid var(--accent-b); }
+.legend-swatch.queued { background: transparent; border: 1px dashed var(--border); }
+
 .card {
   flex: 1;
   max-width: 280px;

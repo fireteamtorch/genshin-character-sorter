@@ -42,6 +42,8 @@
   const progressBarFill = document.getElementById("progress-bar-fill");
   const visionFill = document.getElementById("vision-fill");
   const resultsList = document.getElementById("results-list");
+  const vizCaption = document.getElementById("viz-caption");
+  const arrayViz = document.getElementById("array-viz");
 
   let generator = null;
   let currentPair = null; // { a, b } indices into CHARACTERS
@@ -81,6 +83,35 @@
     imgB.src = charB.file;
     imgB.alt = charB.name;
     nameB.textContent = charB.name;
+    renderArrayViz(currentPair);
+  }
+
+  function renderArrayViz(state) {
+    const sortedLen = state.sortedOrder.length;
+    arrayViz.innerHTML = "";
+    for (let i = 0; i < state.totalCount; i++) {
+      const slot = document.createElement("span");
+      slot.className = "array-slot";
+      if (i < sortedLen) {
+        slot.classList.add("sorted");
+        if (i >= state.lo && i < state.hi) slot.classList.add("window");
+        if (i === state.mid) slot.classList.add("mid");
+        slot.title = CHARACTERS[state.sortedOrder[i]].name;
+      } else {
+        slot.classList.add("queued");
+      }
+      arrayViz.appendChild(slot);
+    }
+
+    const rangeSize = state.hi - state.lo;
+    vizCaption.textContent =
+      "Placing " +
+      CHARACTERS[state.insertingIndex].name +
+      " \u2014 narrowing to " +
+      rangeSize +
+      (rangeSize === 1 ? " possible spot" : " possible spots") +
+      " among your top " +
+      sortedLen;
   }
 
   function choose(preferA) {
@@ -130,7 +161,7 @@
 
   document.getElementById("copy-button").addEventListener("click", async () => {
     const lines = Array.from(resultsList.children).map(
-      (li, i) => i + 1 + ". " + li.querySelector(".name").textContent
+      (li) => li.querySelector(".name").textContent
     );
     const text = lines.join("\n");
     const button = document.getElementById("copy-button");
