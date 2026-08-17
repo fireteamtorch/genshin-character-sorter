@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Genshin character sorter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="top">
+  <p class="eyebrow">Character sorter</p>
+  <h1>Which do you prefer?</h1>
+</header>
+
+<main>
+
+  <!-- Start screen -->
+  <section id="screen-start" class="screen">
+    <p class="lede">You'll be shown pairs of characters and pick your favorite each time. After enough picks, we'll have your full ranked list — no ties, no math required.</p>
+    <p class="lede subtle" id="start-count"></p>
+    <button id="start-button" class="cta">Start sorting</button>
+  </section>
+
+  <!-- Sorting screen -->
+  <section id="screen-sort" class="screen hidden">
+    <div class="progress-row">
+      <div class="vision" aria-hidden="true">
+        <svg viewBox="0 0 40 40" class="vision-svg">
+          <defs>
+            <linearGradient id="gem-gradient" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#4fb8c4" />
+              <stop offset="35%" stop-color="#7d7ce0" />
+              <stop offset="70%" stop-color="#e08a3c" />
+              <stop offset="100%" stop-color="#d4515f" />
+            </linearGradient>
+          </defs>
+          <polygon points="20,2 38,20 20,38 2,20" class="vision-outline" />
+          <polygon id="vision-fill" points="20,2 38,20 20,38 2,20" class="vision-fill" />
+        </svg>
+      </div>
+      <div class="progress-text">
+        <span id="progress-count">0 / 0</span>
+        <div class="progress-bar"><div id="progress-bar-fill" class="progress-bar-fill"></div></div>
+      </div>
+    </div>
+
+    <div class="pair" id="pair-container">
+      <button class="card" id="card-a" data-side="a">
+        <img id="img-a" src="" alt="" />
+        <span class="card-name" id="name-a"></span>
+      </button>
+
+      <span class="vs">vs</span>
+
+      <button class="card" id="card-b" data-side="b">
+        <img id="img-b" src="" alt="" />
+        <span class="card-name" id="name-b"></span>
+      </button>
+    </div>
+
+    <p class="hint">Click a portrait, or use the <kbd>&larr;</kbd> <kbd>&rarr;</kbd> arrow keys.</p>
+  </section>
+
+  <!-- Results screen -->
+  <section id="screen-results" class="screen hidden">
+    <h2>Your ranking</h2>
+    <ol id="results-list" class="results-list"></ol>
+    <div class="results-actions">
+      <button id="copy-button" class="cta secondary">Copy as text</button>
+      <button id="restart-button" class="cta secondary">Start over</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Built with a binary-insertion sort — every pick narrows the list, so you won't be asked about every possible pair.</p>
+</footer>
+
+<script src="characters.js"></script>
+<script src="sorter.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
